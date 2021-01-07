@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity (name="USER_DETAILS")
 public class UserDetails {
 
-	
+	//we can annotate attributes also to change the column names and getters as well.
 	private int userId;
 	private String userName;
 	
