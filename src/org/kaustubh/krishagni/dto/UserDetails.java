@@ -1,30 +1,32 @@
 package org.kaustubh.krishagni.dto;
 
-import java.util.Date;
+//import java.util.Date;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
+//import javax.persistence.Basic;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+//import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
+//import javax.persistence.Transient;
 
 @Entity 
 @Table (name="USER_DETAILS")
 public class UserDetails {
 	//we can annotate attributes also to change the column names and getters as well.
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
 	
-	@Temporal (TemporalType.DATE)
+	/*@Temporal (TemporalType.DATE)
 	private Date joinedDate;
 	private String Address;
 	@Lob
-	private String description;
+	private String description;*/
 	
 	
 	public int getUserId() {
@@ -39,7 +41,8 @@ public class UserDetails {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public Date getJoinedDate() {
+	
+	/*public Date getJoinedDate() {
 		return joinedDate;
 	}
 	public void setJoinedDate(Date joinedDate) {
@@ -56,6 +59,6 @@ public class UserDetails {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
+	}*/
 	
 }
