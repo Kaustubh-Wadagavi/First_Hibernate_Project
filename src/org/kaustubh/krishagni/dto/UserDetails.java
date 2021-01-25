@@ -1,5 +1,7 @@
 package org.kaustubh.krishagni.dto;
 
+import javax.persistence.Embedded;
+
 //import java.util.Date;
 
 //import javax.persistence.Basic;
@@ -21,6 +23,8 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
+	@Embedded
+	private Address address;
 	
 	/*@Temporal (TemporalType.DATE)
 	private Date joinedDate;
@@ -28,7 +32,12 @@ public class UserDetails {
 	@Lob
 	private String description;*/
 	
-	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public int getUserId() {
 		return userId;
 	}
