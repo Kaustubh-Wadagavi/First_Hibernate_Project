@@ -1,14 +1,19 @@
 package org.kaustubh.krishagni.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
 
+	@Column(name="STREET_NAME")
 	private String street;
+	@Column(name="CITY_NAME")
 	private String city;
+	@Column(name="STATE_NAME")
 	private String state;
-	private String pinCode;
+	@Column(name="CITY_PIN_CODE")
+	private String pincode;
 	
 	public String getStreet() {
 		return street;
@@ -29,10 +34,10 @@ public class Address {
 		this.state = state;
 	}
 	public String getPinCode() {
-		return pinCode;
+		return pincode;
 	}
-	public void setPinCode(String pinCode) {
-		this.pinCode = pinCode;
+	public void setPinCode(String pincode) {
+		this.pincode = pincode;
 	}
 	
 	
