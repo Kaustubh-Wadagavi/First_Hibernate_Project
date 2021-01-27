@@ -1,6 +1,9 @@
 package org.kaustubh.krishagni.dto;
 
-import javax.persistence.AttributeOverride;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Embedded;
 
@@ -13,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 //import javax.persistence.Lob;
 import javax.persistence.Table;
 //import javax.persistence.Temporal;
@@ -26,16 +30,8 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@Embedded
-	@AttributeOverrides({
-	@AttributeOverride(name="street", column= @Column(name="HOME_STREET_NAME")),
-	@AttributeOverride(name="city", column= @Column(name="HOME_CITY_NAME")),
-	@AttributeOverride(name="state", column= @Column(name="HOME_STATE_NAME")),
-	@AttributeOverride(name="pincode", column= @Column(name="HOME_PIN_CODE"))})
-	private Address HomeAddress;
-	@Embedded
-	private Address officeAddress;
-	
+	@ElementCollection
+	private Set<Address> listOfAddresses = new HashSet();
 	/*@Temporal (TemporalType.DATE)
 	private Date joinedDate;
 	private String Address;
@@ -46,17 +42,11 @@ public class UserDetails {
 	public int getUserId() {
 		return userId;
 	}
-	public Address getHomeAddress() {
-		return HomeAddress;
+	public Set<Address> getListOfAddresses() {
+		return listOfAddresses;
 	}
-	public void setHomeAddress(Address homeAddress) {
-		HomeAddress = homeAddress;
-	}
-	public Address getOfficeAddress() {
-		return officeAddress;
-	}
-	public void setOfficeAddress(Address officeAddress) {
-		this.officeAddress = officeAddress;
+	public void setListOfAddresses(Set<Address> listOfAddresses) {
+		this.listOfAddresses = listOfAddresses;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;

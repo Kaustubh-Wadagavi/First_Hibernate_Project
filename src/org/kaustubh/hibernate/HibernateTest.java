@@ -19,23 +19,20 @@ public class HibernateTest {
 		UserDetails user = new UserDetails();
 		user.setUserName("First User");
 		
-		//user.setAddress("First User Address");
-		//user.setJoinedDate(new Date());
-		//user.setDescription("First user description goes here");
-		
-		Address addr = new Address();
-		
-		addr.setStreet("Street Name");
-		addr.setCity("City Name");
-		
-		user.setHomeAddress(addr);
+		Address addr1 = new Address();
+		addr1.setStreet("First Street");
+		addr1.setCity("First City");
+		addr1.setState("First State");
+		addr1.setPinCode("1001");
 		
 		Address addr2 = new Address();
+		addr2.setStreet("Second Street");
+		addr2.setCity("Second City");
+		addr2.setState("Second State");
+		addr2.setPinCode("2002");
 		
-		addr2.setStreet("Second Street Name");
-		addr2.setCity("Secomd City Name");
-		
-		user.setOfficeAddress(addr2);
+		user.getListOfAddresses().add(addr1);
+		user.getListOfAddresses().add(addr2);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
