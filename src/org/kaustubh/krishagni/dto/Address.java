@@ -39,6 +39,4 @@ public class Address {
 	public void setPinCode(String pincode) {
 		this.pincode = pincode;
 	}
-	
-	
 }
