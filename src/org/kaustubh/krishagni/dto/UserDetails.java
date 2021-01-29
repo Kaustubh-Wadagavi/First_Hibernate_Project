@@ -15,6 +15,7 @@ import javax.persistence.Embedded;
 //import javax.persistence.Basic;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
@@ -36,16 +37,15 @@ import org.hibernate.annotations.Type;
 @Entity 
 @Table (name="USER_DETAILS")
 public class UserDetails {
-	//we can annotate attributes also to change the column names and getters as well.
+	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@JoinTable(name="USER_ADDRESS",
 		joinColumns=@JoinColumn(name="USER_ID")	
 	)
-	@GenericGenerator(name="hilo-gen",strategy="hilo")
-	@CollectionId(columns = { @Column(name="ADDRESS_ID") }, generator = "hilo-gen", type = @Type(type="long"))
+	
 	private Collection<Address> listOfAddresses = new ArrayList<Address>();
 	/*@Temporal (TemporalType.DATE)
 	private Date joinedDate;

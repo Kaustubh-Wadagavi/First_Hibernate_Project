@@ -36,19 +36,22 @@ public class HibernateTest {
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
+		
 		session.beginTransaction();
 		session.save(user);
-
 		session.getTransaction().commit();
+		
 		session.close();
 		
-		/*user = null;
+		user = null;
 		
 		session = sessionFactory.openSession();
-		session.beginTransaction();
+		
 		user = (UserDetails)session.get(UserDetails.class, 1);
+		session.close();
+		System.out.println(user.getListOfAddresses().size());
 		System.out.println("User Name Retrieved is " + user.getUserName());
-		*/
+		
 		
 	}
 }
