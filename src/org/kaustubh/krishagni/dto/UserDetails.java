@@ -1,6 +1,9 @@
 package org.kaustubh.krishagni.dto;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 //import java.util.Date;
 
 //import javax.persistence.Basic;
@@ -9,9 +12,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 //import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 @Entity 
 @Table (name="USER_DETAILS")
@@ -20,13 +27,13 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@OneToOne
-	private Vehicle vehicle;
+	@ManyToMany
+	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
-	public Vehicle getVehicle() {
+	public Collection<Vehicle> getVehicle() {
 		return vehicle;
 	}
-	public void setVehicle(Vehicle vehicle) {
+	public void setVehicle(Collection<Vehicle> vehicle) {
 		this.vehicle = vehicle;
 	}
 	public int getUserId() {
