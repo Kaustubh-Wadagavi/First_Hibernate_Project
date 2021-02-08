@@ -14,7 +14,6 @@ public class Address {
 	private String state;
 	@Column(name="CITY_PIN_CODE")
 	private String pincode;
-	
 	public String getStreet() {
 		return street;
 	}

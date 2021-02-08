@@ -33,12 +33,15 @@ public class UserDetails {
 	public Collection<Vehicle> getVehicle() {
 		return vehicle;
 	}
+	
 	public void setVehicle(Collection<Vehicle> vehicle) {
 		this.vehicle = vehicle;
 	}
+	
 	public int getUserId() {
 		return userId;
 	}
+	
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
