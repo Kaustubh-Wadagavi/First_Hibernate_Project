@@ -10,11 +10,9 @@ import org.kaustubh.krishagni.dto.UserDetails;
 import org.kaustubh.krishagni.dto.Vehicle;
 
 public class HibernateTest {
-	
 	/**
 	 * @param args
 	 */
-	
 	public static void main(String[] args) {
 		
 		UserDetails user = new UserDetails();
@@ -31,15 +29,13 @@ public class HibernateTest {
 		vehicle.getUserList().add(user);
 		vehicle2.getUserList().add(user);
 		
-		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(user);
-		session.save(vehicle);
-		session.save(vehicle2);
+		session.persist(user);
+		
 		session.getTransaction().commit();
-		session.close();
-				
+		
+		session.close();	
 	}
 }

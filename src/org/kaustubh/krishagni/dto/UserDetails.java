@@ -4,6 +4,8 @@ package org.kaustubh.krishagni.dto;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
+
 //import java.util.Date;
 
 //import javax.persistence.Basic;
@@ -27,7 +29,7 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
 	public Collection<Vehicle> getVehicle() {
