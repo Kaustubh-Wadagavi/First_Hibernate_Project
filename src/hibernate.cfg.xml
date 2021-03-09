@@ -32,7 +32,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/hibernatedb?autoReconnect=true&useSSL=false</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernatedb?autoReconnect=true&amp;useSSL=false"</property>
         <property name="connection.username">os_tester</property>
         <property name="connection.password">secrete</property>
 
@@ -53,6 +53,7 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="org.kaustubh.krishagni.dto.UserDetails"/>
+        <mapping class="org.kaustubh.krishagni.dto.Address"/>
         <mapping class="org.kaustubh.krishagni.dto.Vehicle"/>
         <mapping class="org.kaustubh.krishagni.dto.TwoWheeler"/>
         <mapping class="org.kaustubh.krishagni.dto.FourWheeler"/>
