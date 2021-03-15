@@ -10,14 +10,15 @@ public class HibernateTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		UserDetails user = new UserDetails();
+		user.setUserName("First User");
+		
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		UserDetails user = (UserDetails)session.get(UserDetails.class, 6);
-		user.setUserName("Updated user");
-		session.update(user);
+		session.save(user);
 		
 		session.getTransaction().commit();
 		session.close();
